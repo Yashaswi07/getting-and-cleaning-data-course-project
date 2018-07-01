@@ -75,7 +75,8 @@ colnames(mergedAllDataFrame) <- gsub("mean", "Mean", colnames(mergedAllDataFrame
 ## 8. Apply grouping on subject and activity and find the mean of all the feature vectors for that group
 tidyMergedAllDataFrame <- mergedAllDataFrame %>% group_by(subject, activity) %>% summarise_all("mean")
 ##9 Write the table to the tidy data tab delimited text file
-fwrite(tidyMergedAllDataFrame,outputFile,sep="\t")
+write.table(tidyMergedAllDataFrame, outputFile, row.names = FALSE)
+##fwrite(tidyMergedAllDataFrame,outputFile,sep="\t")
 
 
 
